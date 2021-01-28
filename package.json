@@ -1,0 +1,29 @@
+{
+  "name": "github-jobs-refactors",
+  "version": "1.0.0",
+  "description": "I am going to refactor a github jobs app with react.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ravinalamada/github-jobs-refactors.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "browserslist": [
+    "last 1 chrome versions"
+  ],
+  "bugs": {
+    "url": "https://github.com/ravinalamada/github-jobs-refactors/issues"
+  },
+  "homepage": "https://github.com/ravinalamada/github-jobs-refactors#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "styled-components": "^5.2.1"
+  }
+}
