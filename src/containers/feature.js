@@ -2,7 +2,6 @@ import React from 'react';
 import { Feature, Buttons } from '../components';
 
 export default function FeatureContainer({job, toggleItems}) {
- console.log(job);
  const dateStr = job.created_at;
  const date = new Date(dateStr);
  const days = date.getDay() + 1;

@@ -35774,7 +35774,23 @@ exports.ServerStyleSheet = Ue;
 "production" !== "development" && "undefined" != typeof navigator && "ReactNative" === navigator.product && console.warn("It looks like you've imported 'styled-components' on React Native.\nPerhaps you're looking to import 'styled-components/native'?\nRead more about this at https://www.styled-components.com/docs/basics#react-native"), "production" !== "development" && "test" !== "development" && (window["__styled-components-init__"] = window["__styled-components-init__"] || 0, 1 === window["__styled-components-init__"] && console.warn("It looks like there are several instances of 'styled-components' initialized in this application. This may cause dynamic styles to not render properly, errors during the rehydration process, a missing theme prop, and makes your application bigger without good reason.\n\nSee https://s-c.sh/2BAXzed for more info."), window["__styled-components-init__"] += 1);
 var _default = qe;
 exports.default = _default;
-},{"react-is":"node_modules/react-is/index.js","react":"node_modules/react/index.js","shallowequal":"node_modules/shallowequal/index.js","@emotion/stylis":"node_modules/@emotion/stylis/dist/stylis.browser.esm.js","@emotion/unitless":"node_modules/@emotion/unitless/dist/unitless.browser.esm.js","@emotion/is-prop-valid":"node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js","hoist-non-react-statics":"node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js","process":"../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/process/browser.js"}],"src/components/header/styles/header.js":[function(require,module,exports) {
+},{"react-is":"node_modules/react-is/index.js","react":"node_modules/react/index.js","shallowequal":"node_modules/shallowequal/index.js","@emotion/stylis":"node_modules/@emotion/stylis/dist/stylis.browser.esm.js","@emotion/unitless":"node_modules/@emotion/unitless/dist/unitless.browser.esm.js","@emotion/is-prop-valid":"node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js","hoist-non-react-statics":"node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js","process":"../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/process/browser.js"}],"src/pages/homeStyle.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Wrapper = exports.Container = void 0;
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const Container = _styledComponents.default.section``;
+exports.Container = Container;
+const Wrapper = _styledComponents.default.div``;
+exports.Wrapper = Wrapper;
+},{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/header/styles/header.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36172,7 +36188,70 @@ SearchCity.Container = function SearchCityContainer({
   /*#__PURE__*/
   _react.default.createElement(Container, restProps, children);
 };
-},{"react":"node_modules/react/index.js"}],"src/components/buttons/styles/buttons.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"src/components/city/styles/city.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Text = exports.Input = exports.Fieldset = exports.Form = void 0;
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const Form = _styledComponents.default.form``;
+exports.Form = Form;
+const Fieldset = _styledComponents.default.fieldset``;
+exports.Fieldset = Fieldset;
+const Input = _styledComponents.default.input``;
+exports.Input = Input;
+const Text = _styledComponents.default.label``;
+exports.Text = Text;
+},{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/city/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = City;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _city = require("./styles/city");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function City({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_city.Form, restProps, children);
+}
+
+City.Fieldset = function CityFieldset({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_city.Fieldset, restProps, children);
+};
+
+City.Input = function CityInput({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_city.Input, restProps, children);
+};
+
+City.Text = function CityText({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_city.Text, restProps, children);
+};
+
+;
+},{"react":"node_modules/react/index.js","./styles/city":"src/components/city/styles/city.js"}],"src/components/buttons/styles/buttons.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36250,6 +36329,12 @@ Object.defineProperty(exports, "SearchCity", {
     return _searchCity.default;
   }
 });
+Object.defineProperty(exports, "City", {
+  enumerable: true,
+  get: function () {
+    return _city.default;
+  }
+});
 Object.defineProperty(exports, "Buttons", {
   enumerable: true,
   get: function () {
@@ -36267,10 +36352,12 @@ var _jobs = _interopRequireDefault(require("./jobs"));
 
 var _searchCity = _interopRequireDefault(require("./searchCity"));
 
+var _city = _interopRequireDefault(require("./city"));
+
 var _buttons = _interopRequireDefault(require("./buttons"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./header":"src/components/header/index.js","./form":"src/components/form/index.js","./feature":"src/components/feature/index.js","./jobs":"src/components/jobs/index.js","./searchCity":"src/components/searchCity/index.js","./buttons":"src/components/buttons/index.js"}],"src/containers/header.js":[function(require,module,exports) {
+},{"./header":"src/components/header/index.js","./form":"src/components/form/index.js","./feature":"src/components/feature/index.js","./jobs":"src/components/jobs/index.js","./searchCity":"src/components/searchCity/index.js","./city":"src/components/city/index.js","./buttons":"src/components/buttons/index.js"}],"src/containers/header.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38054,7 +38141,6 @@ function GlobalContextProvider({
     state,
     dispatch
   } = (0, _useReduce.default)();
-  console.log(state);
   return /*#__PURE__*/_react.default.createElement(Context.Provider, {
     value: {
       state,
@@ -38080,7 +38166,6 @@ function FeatureContainer({
   job,
   toggleItems
 }) {
-  console.log(job);
   const dateStr = job.created_at;
   const date = new Date(dateStr);
   const days = date.getDay() + 1;
@@ -38125,8 +38210,7 @@ function JobsContainer({
   const {
     loading,
     jobs
-  } = state;
-  console.log('Its ', jobs); // This will toggle the items
+  } = state; // This will toggle the items
 
   function toggleItems() {
     dispatch({
@@ -38192,7 +38276,72 @@ function FormContainer() {
     onChange: e => setSearchJob(e.target.value)
   })), /*#__PURE__*/_react.default.createElement(_components.Form.Submit, null, "Search"))));
 }
-},{"react":"node_modules/react/index.js","../context/globalContextProvider":"src/context/globalContextProvider.js","../components":"src/components/index.js"}],"src/pages/home.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../context/globalContextProvider":"src/context/globalContextProvider.js","../components":"src/components/index.js"}],"src/fixtures/cityData.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.cityData = void 0;
+const cityData = [{
+  city: 'London',
+  id: 1
+}, {
+  city: 'New York'
+}, {
+  city: 'Amesterdam'
+}, {
+  city: 'Berlin'
+}];
+exports.cityData = cityData;
+},{}],"src/containers/city.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = CityContainer;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _components = require("../components");
+
+var _cityData = require("../fixtures/cityData");
+
+var _globalContextProvider = require("../context/globalContextProvider");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function CityContainer() {
+  const [cities, setCities] = (0, _react.useState)(_cityData.cityData);
+
+  function searchCity() {}
+
+  return /*#__PURE__*/_react.default.createElement(_components.City, null, /*#__PURE__*/_react.default.createElement(_components.City.Fieldset, null, /*#__PURE__*/_react.default.createElement(_components.City.Text, {
+    htmlFor: "london"
+  }, "London"), /*#__PURE__*/_react.default.createElement(_components.City.Input, {
+    type: "checkbox",
+    id: "london"
+  })), /*#__PURE__*/_react.default.createElement(_components.City.Fieldset, null, /*#__PURE__*/_react.default.createElement(_components.City.Text, {
+    htmlFor: "amesterdam"
+  }, "Ameterdam"), /*#__PURE__*/_react.default.createElement(_components.City.Input, {
+    type: "checkbox",
+    id: "amesterdam"
+  })), /*#__PURE__*/_react.default.createElement(_components.City.Fieldset, null, /*#__PURE__*/_react.default.createElement(_components.City.Text, {
+    htmlFor: "new-york"
+  }, "New York"), /*#__PURE__*/_react.default.createElement(_components.City.Input, {
+    type: "checkbox",
+    id: "new-york"
+  })), /*#__PURE__*/_react.default.createElement(_components.City.Fieldset, null, /*#__PURE__*/_react.default.createElement(_components.City.Text, {
+    htmlFor: "berlin"
+  }, "Berlin"), /*#__PURE__*/_react.default.createElement(_components.City.Input, {
+    type: "checkbox",
+    id: "berlin"
+  })));
+}
+},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../fixtures/cityData":"src/fixtures/cityData.js","../context/globalContextProvider":"src/context/globalContextProvider.js"}],"src/pages/home.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38202,20 +38351,24 @@ exports.default = Home;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _homeStyle = require("../pages/homeStyle");
+
 var _header = _interopRequireDefault(require("../containers/header"));
 
 var _jobs = _interopRequireDefault(require("../containers/jobs"));
 
 var _form = _interopRequireDefault(require("../containers/form"));
 
+var _city = _interopRequireDefault(require("../containers/city"));
+
 var _components = require("../components");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Home() {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.default, null, /*#__PURE__*/_react.default.createElement(_components.Header.Background, null, /*#__PURE__*/_react.default.createElement(_form.default, null))), /*#__PURE__*/_react.default.createElement(_jobs.default, null));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.default, null, /*#__PURE__*/_react.default.createElement(_components.Header.Background, null, /*#__PURE__*/_react.default.createElement(_form.default, null))), /*#__PURE__*/_react.default.createElement(_homeStyle.Container, null, /*#__PURE__*/_react.default.createElement(_city.default, null), /*#__PURE__*/_react.default.createElement(_jobs.default, null)));
 }
-},{"react":"node_modules/react/index.js","../containers/header":"src/containers/header.js","../containers/jobs":"src/containers/jobs.js","../containers/form":"src/containers/form.js","../components":"src/components/index.js"}],"src/GlobalStyles.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../pages/homeStyle":"src/pages/homeStyle.js","../containers/header":"src/containers/header.js","../containers/jobs":"src/containers/jobs.js","../containers/form":"src/containers/form.js","../containers/city":"src/containers/city.js","../components":"src/components/index.js"}],"src/GlobalStyles.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38298,7 +38451,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60244" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51366" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

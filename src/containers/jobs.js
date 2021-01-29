@@ -8,7 +8,6 @@ import FeatureContainer from '../containers/feature';
 export default function JobsContainer({children, ...restProps}) {
   const {state, dispatch} = useContext(Context);
   const {loading, jobs} = state;
-  console.log( 'Its ', jobs);
 
   // This will toggle the items
   function toggleItems() {

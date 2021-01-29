@@ -5,7 +5,7 @@ const Context = createContext();
 
 function GlobalContextProvider({children}) {
   const {state, dispatch} = useReduce()
-  console.log(state);
+
   return (
     <Context.Provider value={{state, dispatch}}>
        {children}
