@@ -1,11 +1,12 @@
 import React from 'react';
-import { Router } from 'react-router-dom';
 import Home from './pages/home';
+import { GlobalStyles } from './GlobalStyles';
 
 export default function App() {
   return (
-    <Router>
-       <Home />
-    </Router>
+    <>
+      <GlobalStyles />
+      <Home />
+    </>
   )
 }

@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
-export const Background = styled.header `
-  background-image: url('./images/backgroundImg.png');
+export const Container = styled.header `
+  padding: 16px;
+`;
+
+export const Background = styled.section `
+  background-image: url('./images/images/backgroundImg.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -9,5 +13,7 @@ export const Background = styled.header `
   border-radius: 8px;
   margin-bottom: 40px;
 `;
+
+export const Title = styled.h1 ``;
 
 export const Frame = styled.div ``;

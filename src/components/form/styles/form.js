@@ -12,6 +12,10 @@ export const Base = styled.form `
 export const Wrapper = styled.div `
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
+  background: #FFFFFF;
+`;
+
+export const Frame = styled.div `
   display: grid;
   grid-template-columns: 80% 1fr;
 `;
@@ -24,9 +28,9 @@ export const Fieldset = styled.fieldset `
 
 export const Input = styled.input `
   padding-left: 16px;
-  width: 80%;
+  border-color: transparent;
+  width: 100%;
   height: 90%;
-  background: #FFFFFF;
 `;
 
 export const Submit = styled.button `
@@ -38,8 +42,6 @@ export const Submit = styled.button `
   line-height: 19px;
   padding-top: 18px;
   padding-bottom: 18px;
-  padding-left: 48px;
-  padding-right: 48px;
   border-color: transparent;
   margin-top: 8px;
   margin-bottom: 8px;

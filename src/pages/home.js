@@ -1,13 +1,18 @@
 import React from 'react';
 import HeaderContainer from '../containers/header';
-import { Form } from '../components';
+import JobsContainer from '../containers/jobs';
+import FormContainer from '../containers/form';
+import { Header} from '../components'
 
-function home() {
+export default function Home() {
   return (
-    <HeaderContainer>
-       <Form />
-    </HeaderContainer>
+    <>
+      <HeaderContainer>
+        <Header.Background>
+          <FormContainer />
+        </Header.Background>
+      </HeaderContainer>
+      <JobsContainer />
+    </>
   )
 }
-
-export default home

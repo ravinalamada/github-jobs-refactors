@@ -1,16 +1,25 @@
-import React from 'react'
-import { Background, Frame } from './styles/header'
+import React from 'react';
+import { Container, Background,  Title, Frame } from './styles/header'
 
 function Header({children, ...restProps}) {
   return (
-    <Background {...restProps}>
+    <Container {...restProps}>
       {children}
-    </Background>
+    </Container>
   )
 }
 
-Header.Frame = function HeaderFrame({children}) {
-  <Frame {...restProps}>{children}</Frame>
+
+Header.Background = function HeaderBackground({children, ...restProps}) {
+  return <Background {...restProps}>{children}</Background>
+}
+
+Header.Title = function HeaderTitle({children, ...restProps}) {
+  return <Title {...restProps}>{children}</Title>
+}
+
+Header.Frame = function HeaderFrame({children, ...restProps}) {
+  return <Frame {...restProps}>{children}</Frame>
 }
 
 

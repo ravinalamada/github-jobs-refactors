@@ -6,6 +6,7 @@ import {
 	Submit,
   Fieldset,
   Wrapper,
+  Frame,
 } from './styles/form';
 
 export default function Form({ children, ...restProps }) {
@@ -15,6 +16,10 @@ export default function Form({ children, ...restProps }) {
 
 Form.Base = function FormBase({ children, ...restProps }) {
 	return <Base {...restProps}>{children}</Base>;
+};
+
+Form.Frame = function FormFrame({ children, ...restProps }) {
+	return <Frame {...restProps}>{children}</Frame>;
 };
 
 Form.Input = function FormInput({ children, ...restProps }) {

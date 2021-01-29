@@ -1,12 +1,11 @@
 import React from 'react';
-import { Header } from '../components';
+import { Header, Form } from '../components';
 
 function HeaderContainer({children}) {
   return (
     <Header>
-      <Header.Frame>
-        {children}
-      </Header.Frame>
+      <Header.Title>Github Jobs</Header.Title>
+      {children}
     </Header>
   )
 }
