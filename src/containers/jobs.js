@@ -5,8 +5,8 @@ import FeatureContainer from '../containers/feature';
 
 
 // Mapped the jobs data from the API url
-export default function JobsContainer({children, ...restProps}) {
-  const {state, dispatch} = useContext(Context);
+export default function JobsContainer() {
+  const {state, dispatch, activeJobs} = useContext(Context);
   const {loading, jobs} = state;
 
   // This will toggle the items
@@ -19,7 +19,7 @@ export default function JobsContainer({children, ...restProps}) {
       {!loading && jobs && jobs && (
           <>
             {
-              jobs.map(job => (<FeatureContainer key={job.id} job={job} toggleItems={toggleItems}/>))
+              activeJobs.map(job => (<FeatureContainer key={job.id} job={job} toggleItems={toggleItems}/>))
             }
           </>
         )

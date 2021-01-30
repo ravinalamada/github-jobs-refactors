@@ -8,36 +8,24 @@ function useReduce() {
       case "FETCH_JOBS": {
         return {...state, loading: false, jobs: action.job}
       }
+      case "SEARCH_JOB_BY_TITLE_COMPANY": {
+        return {...state, loading: false, jobs: action.searchJobByTitleAndCompany}
+      }
+      case "SEARCH_JOB_BY_LOCATION" : {
+        return {...state, loading: false, jobs: action.searchCity }
+       }
+
+      case "TYPE_OF_JOB": {
+        return {...state, loading: false, jobs: action.jobType}
+      }
+
+      case "SEARCH_JOB_BY_CITY": {
+        return {...state, loading: false, jobs: action.searchJobByCity}
+      }
+
       case "FETCH_JOB_DETAILS_DATA": {
         return {...state, loading: false, jobDetails: action.details}
       }
-      case "FILTER_JOB_TITLE_COMPANY": {
-        return {...state, loading: false, jobs: action.searchJobByTitleAndCompany}
-      }
-      case "FETCH_LONDON_LOCATION_DATA": {
-         return {...state, loading:false, jobs:action.response}
-       }
-      case "FETCH_AMESTERDAM_LOCATION_DATA": {
-         return {...state, loading:false, jobs:action.AmesterdamRes}
-       }
-      case "FETCH_NY_LOCATION_DATA": {
-         return {...state, loading:false, jobs:action.newYResponse}
-       }
-      case "FETCH_BERLIN_LOCATION_DATA": {
-         return {...state, loading:false, jobs:action.berlinResponse}
-       }
-       case "TOGGLE_CHECKBOX": {
-         return {...state, loading: false, jobs: action.location}
-       }
-       case "NEW_YORK_LOCATION": {
-         return {...state, loading: false, isCheked: !state.isCheked }
-       }
-       case "TOGGLE_ITEMS": {
-         return {...state, loading: false, isCheked: !state.isCheked }
-       }
-       case "SEARCH_JOB_BY_LOCATION" : {
-         return {...state, jobs: action.searchJobByLocation}
-       }
        default:
           return state
      }

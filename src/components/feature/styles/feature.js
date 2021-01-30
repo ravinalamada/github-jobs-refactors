@@ -8,6 +8,8 @@ export const Item = styled.li `
   padding: 12px;
   margin-bottom: 32px;
   list-style: none;
+  margin-right: 16px;
+  margin-left: 16px;
 `;
 export const Wrapper = styled.div `
   display: grid;

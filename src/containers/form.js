@@ -12,7 +12,7 @@ export default function FormContainer() {
 
     // This filter the Job title and company name
     const searchJobByTitleAndCompany = !loading && jobs && jobs.filter(job => job.title.toLowerCase() === searchJob.toLowerCase());
-    dispatch({ type: 'FILTER_JOB_TITLE_COMPANY', searchJobByTitleAndCompany });
+    dispatch({ type: 'SEARCH_JOB_BY_TITLE_COMPANY', searchJobByTitleAndCompany });
     alert(`There are ${searchJobByTitleAndCompany.length}  jobs in there`);
     setSearchJob('')
   }

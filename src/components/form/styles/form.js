@@ -31,6 +31,7 @@ export const Input = styled.input `
   border-color: transparent;
   width: 100%;
   height: 90%;
+  cursor: pointer;
 `;
 
 export const Submit = styled.button `
@@ -46,5 +47,6 @@ export const Submit = styled.button `
   margin-top: 8px;
   margin-bottom: 8px;
   margin-right: 8px;
+  cursor: pointer;
 `;
 

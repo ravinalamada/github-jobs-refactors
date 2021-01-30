@@ -1,33 +1,36 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import { City } from '../components';
 import { cityData } from '../fixtures/cityData';
-import {context } from '../context/globalContextProvider';
+import {Context } from '../context/globalContextProvider';
 
 export default function CityContainer() {
-  const [cities, setCities] = useState(cityData);
+  const [londonCity, setLondonCity] = useState(cityData);
+  const [checkboxesValue, setCheckboxesValue] = useState('');
+  const { state, dispatch } = useContext(Context);
+  const {loading, jobs } = state;
 
-  function searchCity() {
-
+  function handleChange(e) {
+    e.preventDefault();
+    setCheckboxesValue(e.target.value);
   }
+
+  useEffect(() => {
+    const inputValue = checkboxesValue;
+    const searchCity = !loading && jobs && jobs.filter(job => job.location.toLowerCase().includes(inputValue.toLowerCase()))
+    dispatch({ type: 'SEARCH_JOB_BY_LOCATION', searchCity });
+  }, [checkboxesValue])
 
   return (
     <City>
-     <City.Fieldset>
-       <City.Text htmlFor="london">London</City.Text>
-       <City.Input type="checkbox" id="london"/>
-     </City.Fieldset>
-     <City.Fieldset>
-       <City.Text htmlFor="amesterdam">Ameterdam</City.Text>
-       <City.Input type="checkbox" id="amesterdam" />
-     </City.Fieldset>
-     <City.Fieldset>
-       <City.Text htmlFor="new-york">New York</City.Text>
-       <City.Input type="checkbox" id="new-york" />
-     </City.Fieldset>
-     <City.Fieldset>
-       <City.Text htmlFor="berlin">Berlin</City.Text>
-       <City.Input type="checkbox" id="berlin" />
-     </City.Fieldset>
+     {cityData.map(city => (
+      <City.Fieldset key={city.id}>
+        <City.Text htmlFor="berlin">{city.city}</City.Text>
+        <City.Input
+          type="radio"
+          value={city.city}
+          onChange={handleChange} />
+      </City.Fieldset>
+     ))}
     </City>
   )
 }

@@ -7,10 +7,11 @@ export const Fieldset = styled.fieldset `
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
-  padding: 0;
-  margin: 0;
 `;
-export const Input = styled.input ``;
+
+export const Input = styled.input `
+  cursor: pointer;
+`;
 
 export const Text = styled.label `
   margin-left: 12.5px;
@@ -19,4 +20,3 @@ export const Text = styled.label `
   line-height: 21px;
   color: #334680;
 `;
-
