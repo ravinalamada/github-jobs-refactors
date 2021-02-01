@@ -1,9 +1,9 @@
-import React,  {useContext, useState} from 'react';
+import React,  {useContext, useState, useEffect} from 'react';
 import {Context} from '../context/globalContextProvider';
 import { Form } from '../components';
 
 export default function FormContainer() {
-  const {state, dispatch} = useContext(Context);
+  const {state, dispatch, getJobs} = useContext(Context);
   const {loading, jobs} = state;
   const [searchJob, setSearchJob] = useState('');
 
@@ -11,11 +11,21 @@ export default function FormContainer() {
     e.preventDefault();
 
     // This filter the Job title and company name
-    const searchJobByTitleAndCompany = !loading && jobs && jobs.filter(job => job.title.toLowerCase() === searchJob.toLowerCase());
-    dispatch({ type: 'SEARCH_JOB_BY_TITLE_COMPANY', searchJobByTitleAndCompany });
-    alert(`There are ${searchJobByTitleAndCompany.length}  jobs in there`);
-    setSearchJob('')
+    const searchJobByTitleAndCompany = !loading && jobs && jobs.filter(job => {
+      const searchByTitle = !loading && job.title.toLowerCase() === searchJob.toLowerCase();
+      const searchByCompany = !loading && job.company.toLowerCase() === searchJob.toLowerCase();
+      return searchByTitle || searchByCompany
+    })
+
+    dispatch({ type: 'SEARCH_JOB_BY_TITLE_COMPANY',
+     searchJobByTitleAndCompany: searchJobByTitleAndCompany});
   }
+
+  useEffect(() => {
+    if(searchJob === '') {
+      getJobs();
+    }
+  }, [searchJob])
 
   return (
     <Form.Base onSubmit={submitSearchJob}>

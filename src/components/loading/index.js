@@ -1,5 +1,5 @@
 import React from 'react'
-import {Container, Wrapper, Text} from '../../pages/homeStyle'
+import {Container, Wrapper, Text } from './styles/loading'
 
 export default function Loading({children, ...restProps}) {
   return (
@@ -10,9 +10,9 @@ export default function Loading({children, ...restProps}) {
 }
 
 Loading.Wrapper = function LoadingWrapper({children, ...restProps}) {
-  <Wrapper {...restProps}>{children}</Wrapper>
+  return (<Wrapper {...restProps}>{children}</Wrapper>)
 }
 
 Loading.Text = function LoadingText({children, ...restProps}) {
-  <Text {...restProps}>{children}</Text>
-}
+  return (<Text {...restProps}>{children}</Text>
+)}

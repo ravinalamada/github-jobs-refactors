@@ -39897,7 +39897,8 @@ function useReduce() {
 
   return {
     state,
-    dispatch
+    dispatch,
+    getJobs
   };
 }
 
@@ -39930,7 +39931,8 @@ function GlobalContextProvider({
 }) {
   const {
     state,
-    dispatch
+    dispatch,
+    getJobs
   } = (0, _useReduce.default)();
   const {
     loading,
@@ -39944,6 +39946,7 @@ function GlobalContextProvider({
   return /*#__PURE__*/_react.default.createElement(Context.Provider, {
     value: {
       state,
+      getJobs,
       dispatch,
       activeJobs,
       totalPages,
@@ -40970,7 +40973,73 @@ function Buttons({
 }) {
   return /*#__PURE__*/_react.default.createElement(_buttons.Button, restProps, children);
 }
-},{"react":"node_modules/react/index.js","./styles/buttons":"src/components/buttons/styles/buttons.js"}],"src/components/loading/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./styles/buttons":"src/components/buttons/styles/buttons.js"}],"src/components/loading/styles/loading.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Text = exports.Wrapper = exports.Container = void 0;
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const Container = _styledComponents.default.div``;
+exports.Container = Container;
+const Wrapper = _styledComponents.default.div`
+
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+
+  .lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  }
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    margin: 8px;
+    border: 8px solid  #334680;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color:  #334680 transparent transparent transparent;
+  }
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+`;
+exports.Wrapper = Wrapper;
+const Text = _styledComponents.default.div`
+
+ color: #334680;
+ font-size: 40px;
+ font-weight: bold;
+`;
+exports.Text = Text;
+},{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/loading/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -40980,7 +41049,7 @@ exports.default = Loading;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _homeStyle = require("../../pages/homeStyle");
+var _loading = require("./styles/loading");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -40988,25 +41057,23 @@ function Loading({
   children,
   ...restProps
 }) {
-  return /*#__PURE__*/_react.default.createElement(_homeStyle.Container, restProps, children);
+  return /*#__PURE__*/_react.default.createElement(_loading.Container, restProps, children);
 }
 
 Loading.Wrapper = function LoadingWrapper({
   children,
   ...restProps
 }) {
-  /*#__PURE__*/
-  _react.default.createElement(_homeStyle.Wrapper, restProps, children);
+  return /*#__PURE__*/_react.default.createElement(_loading.Wrapper, restProps, children);
 };
 
 Loading.Text = function LoadingText({
   children,
   ...restProps
 }) {
-  /*#__PURE__*/
-  _react.default.createElement(_homeStyle.Text, restProps, children);
+  return /*#__PURE__*/_react.default.createElement(_loading.Text, restProps, children);
 };
-},{"react":"node_modules/react/index.js","../../pages/homeStyle":"src/pages/homeStyle.js"}],"src/components/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./styles/loading":"src/components/loading/styles/loading.js"}],"src/components/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -41241,7 +41308,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function FormContainer() {
   const {
     state,
-    dispatch
+    dispatch,
+    getJobs
   } = (0, _react.useContext)(_globalContextProvider.Context);
   const {
     loading,
@@ -41252,15 +41320,22 @@ function FormContainer() {
   function submitSearchJob(e) {
     e.preventDefault(); // This filter the Job title and company name
 
-    const searchJobByTitleAndCompany = !loading && jobs && jobs.filter(job => job.title.toLowerCase() === searchJob.toLowerCase());
+    const searchJobByTitleAndCompany = !loading && jobs && jobs.filter(job => {
+      const searchByTitle = !loading && job.title.toLowerCase() === searchJob.toLowerCase();
+      const searchByCompany = !loading && job.company.toLowerCase() === searchJob.toLowerCase();
+      return searchByTitle || searchByCompany;
+    });
     dispatch({
       type: 'SEARCH_JOB_BY_TITLE_COMPANY',
-      searchJobByTitleAndCompany
+      searchJobByTitleAndCompany: searchJobByTitleAndCompany
     });
-    alert(`There are ${searchJobByTitleAndCompany.length}  jobs in there`);
-    setSearchJob('');
   }
 
+  (0, _react.useEffect)(() => {
+    if (searchJob === '') {
+      getJobs();
+    }
+  }, [searchJob]);
   return /*#__PURE__*/_react.default.createElement(_components.Form.Base, {
     onSubmit: submitSearchJob
   }, /*#__PURE__*/_react.default.createElement(_components.Form.Wrapper, null, /*#__PURE__*/_react.default.createElement(_components.Form.Frame, null, /*#__PURE__*/_react.default.createElement(_components.Form.Fieldset, null, /*#__PURE__*/_react.default.createElement(_components.Form.Input, {
@@ -41458,7 +41533,30 @@ function FormLocationContainer() {
     fill: "#B9BDCF"
   }))));
 }
-},{"react":"node_modules/react/index.js","../context/globalContextProvider":"src/context/globalContextProvider.js","../components":"src/components/index.js"}],"src/pages/home.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../context/globalContextProvider":"src/context/globalContextProvider.js","../components":"src/components/index.js"}],"src/containers/loading.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _components = require("../components");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// This will display the loading context while the data is loading
+function LoadingContainer() {
+  return /*#__PURE__*/_react.default.createElement(_components.Loading, null, /*#__PURE__*/_react.default.createElement(_components.Loading.Wrapper, null, /*#__PURE__*/_react.default.createElement(_components.Loading.Text, null, "Loading"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "lds-ring"
+  }, /*#__PURE__*/_react.default.createElement("div", null), /*#__PURE__*/_react.default.createElement("div", null), /*#__PURE__*/_react.default.createElement("div", null), /*#__PURE__*/_react.default.createElement("div", null))));
+}
+
+var _default = LoadingContainer;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","../components":"src/components/index.js"}],"src/pages/home.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -41474,6 +41572,8 @@ var _globalContextProvider = require("../context/globalContextProvider");
 
 var _homeStyle = require("../pages/homeStyle");
 
+var _components = require("../components");
+
 var _header = _interopRequireDefault(require("../containers/header"));
 
 var _jobs = _interopRequireDefault(require("../containers/jobs"));
@@ -41486,7 +41586,7 @@ var _formType = _interopRequireDefault(require("../containers/formType"));
 
 var _formLoc = _interopRequireDefault(require("../containers/formLoc"));
 
-var _components = require("../components");
+var _loading = _interopRequireDefault(require("../containers/loading"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -41496,8 +41596,6 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function Home() {
   const {
-    activeJobs,
-    totalPages,
     activePage,
     setActivePage,
     state
@@ -41513,16 +41611,9 @@ function Home() {
     setActivePage(num);
   }
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.default, null, /*#__PURE__*/_react.default.createElement(_components.Header.Background, null, /*#__PURE__*/_react.default.createElement(_form.default, null))), /*#__PURE__*/_react.default.createElement(_homeStyle.Container, null, /*#__PURE__*/_react.default.createElement(_homeStyle.Wrapper, null, /*#__PURE__*/_react.default.createElement(_formType.default, null), /*#__PURE__*/_react.default.createElement(_formLoc.default, null), /*#__PURE__*/_react.default.createElement(_city.default, null)), /*#__PURE__*/_react.default.createElement(_jobs.default, null)), /*#__PURE__*/_react.default.createElement(_homeStyle.Frame, null, /*#__PURE__*/_react.default.createElement(_reactJsPagination.default, {
-    className: isClicked ? 'isCliked' : '',
-    pageRangeDisplayed: 3,
-    activePage: activePage,
-    itemsCountPerPage: 6,
-    totalItemsCount: !loading && jobs && jobs.length,
-    onChange: displayPages
-  })));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.default, null, /*#__PURE__*/_react.default.createElement(_components.Header.Background, null, /*#__PURE__*/_react.default.createElement(_form.default, null))), /*#__PURE__*/_react.default.createElement(_homeStyle.Container, null, /*#__PURE__*/_react.default.createElement(_homeStyle.Wrapper, null, /*#__PURE__*/_react.default.createElement(_formType.default, null), /*#__PURE__*/_react.default.createElement(_formLoc.default, null), /*#__PURE__*/_react.default.createElement(_city.default, null)), loading ? /*#__PURE__*/_react.default.createElement(_loading.default, null) : /*#__PURE__*/_react.default.createElement(_jobs.default, null)), /*#__PURE__*/_react.default.createElement(_homeStyle.Frame, null));
 }
-},{"react":"node_modules/react/index.js","react-js-pagination":"node_modules/react-js-pagination/dist/Pagination.js","../context/globalContextProvider":"src/context/globalContextProvider.js","../pages/homeStyle":"src/pages/homeStyle.js","../containers/header":"src/containers/header.js","../containers/jobs":"src/containers/jobs.js","../containers/form":"src/containers/form.js","../containers/city":"src/containers/city.js","../containers/formType":"src/containers/formType.js","../containers/formLoc":"src/containers/formLoc.js","../components":"src/components/index.js"}],"src/containers/jobDetails.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-js-pagination":"node_modules/react-js-pagination/dist/Pagination.js","../context/globalContextProvider":"src/context/globalContextProvider.js","../pages/homeStyle":"src/pages/homeStyle.js","../components":"src/components/index.js","../containers/header":"src/containers/header.js","../containers/jobs":"src/containers/jobs.js","../containers/form":"src/containers/form.js","../containers/city":"src/containers/city.js","../containers/formType":"src/containers/formType.js","../containers/formLoc":"src/containers/formLoc.js","../containers/loading":"src/containers/loading.js"}],"src/containers/jobDetails.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -41693,7 +41784,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56523" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50733" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

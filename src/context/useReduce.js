@@ -51,7 +51,7 @@ function useReduce() {
    }, [])
 
    // return the state and dispatch that I am going to use
-  return {state, dispatch}
+  return {state, dispatch, getJobs}
 }
 
 
