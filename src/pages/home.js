@@ -42,14 +42,14 @@ const [isClicked, setIsCliked ] = useState(false);
         }
       </Container>
       <Frame>
-        {/* <Pagination
+        <Pagination
           className={isClicked ? 'isCliked' : ''}
           pageRangeDisplayed={3}
           activePage={activePage}
           itemsCountPerPage={6}
           totalItemsCount={!loading && jobs && jobs.length}
           onChange={displayPages}
-        /> */}
+        />
       </Frame>
     </>
   )

@@ -41611,7 +41611,14 @@ function Home() {
     setActivePage(num);
   }
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.default, null, /*#__PURE__*/_react.default.createElement(_components.Header.Background, null, /*#__PURE__*/_react.default.createElement(_form.default, null))), /*#__PURE__*/_react.default.createElement(_homeStyle.Container, null, /*#__PURE__*/_react.default.createElement(_homeStyle.Wrapper, null, /*#__PURE__*/_react.default.createElement(_formType.default, null), /*#__PURE__*/_react.default.createElement(_formLoc.default, null), /*#__PURE__*/_react.default.createElement(_city.default, null)), loading ? /*#__PURE__*/_react.default.createElement(_loading.default, null) : /*#__PURE__*/_react.default.createElement(_jobs.default, null)), /*#__PURE__*/_react.default.createElement(_homeStyle.Frame, null));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.default, null, /*#__PURE__*/_react.default.createElement(_components.Header.Background, null, /*#__PURE__*/_react.default.createElement(_form.default, null))), /*#__PURE__*/_react.default.createElement(_homeStyle.Container, null, /*#__PURE__*/_react.default.createElement(_homeStyle.Wrapper, null, /*#__PURE__*/_react.default.createElement(_formType.default, null), /*#__PURE__*/_react.default.createElement(_formLoc.default, null), /*#__PURE__*/_react.default.createElement(_city.default, null)), loading ? /*#__PURE__*/_react.default.createElement(_loading.default, null) : /*#__PURE__*/_react.default.createElement(_jobs.default, null)), /*#__PURE__*/_react.default.createElement(_homeStyle.Frame, null, /*#__PURE__*/_react.default.createElement(_reactJsPagination.default, {
+    className: isClicked ? 'isCliked' : '',
+    pageRangeDisplayed: 3,
+    activePage: activePage,
+    itemsCountPerPage: 6,
+    totalItemsCount: !loading && jobs && jobs.length,
+    onChange: displayPages
+  })));
 }
 },{"react":"node_modules/react/index.js","react-js-pagination":"node_modules/react-js-pagination/dist/Pagination.js","../context/globalContextProvider":"src/context/globalContextProvider.js","../pages/homeStyle":"src/pages/homeStyle.js","../components":"src/components/index.js","../containers/header":"src/containers/header.js","../containers/jobs":"src/containers/jobs.js","../containers/form":"src/containers/form.js","../containers/city":"src/containers/city.js","../containers/formType":"src/containers/formType.js","../containers/formLoc":"src/containers/formLoc.js","../containers/loading":"src/containers/loading.js"}],"src/containers/jobDetails.js":[function(require,module,exports) {
 "use strict";
@@ -41784,7 +41791,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50733" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63525" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
