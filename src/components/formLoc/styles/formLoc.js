@@ -1,6 +1,15 @@
 import styled from 'styled-components';
 
-export const Form = styled.form ``;
+export const Form = styled.form `
+  margin-block-start: 30px;
+  margin-block-end: 30px;
+
+  svg {
+    position: relative;
+    top: -31px;
+    left: 16px;
+  }
+`;
 
 export const Fieldset = styled.fieldset `
   border-color: transparent;
@@ -15,11 +24,12 @@ export const Input = styled.input `
   border-color: transparent;
   cursor: pointer;
   padding: 12px;
-  margin-bottom: 32px;
+  padding-left: 45px;
   font-weight: normal;
   font-size: 12px;
   line-height: 14px;
   color: #B9BDCF;
+  margin-block-start:14px;
 `;
 
 export const Text = styled.label `

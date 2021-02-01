@@ -8,13 +8,11 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         background: #F6F7FB;
         border-radius: 12px;
-    }
 
-    img {
-      /* width: 100px; */
+    fieldset {
+      margin: 0;
+      padding: 0;
     }
+  }
 
-    a {
-      text-transform: none;
-    }
 `;

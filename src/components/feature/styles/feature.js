@@ -19,8 +19,22 @@ export const Wrapper = styled.div `
 `;
 
 export const SubWrapper = styled.div `
+
   display: flex;
   justify-content: flex-end;
+  gap: 29px;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 8.5px
+  }
+
+  @media (max-width: 600px) {
+   justify-content: center;
+}
+
 `;
 
 export const Frame = styled.div ``;
@@ -40,20 +54,13 @@ export const Text = styled.p `
   color: #334680;
 `;
 
-export const LogoCity = styled.p `
+export const SmallText = styled.p `
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 14px;
   color: #B9BDCF;
-`;
-
-export const LogoDate = styled.p `
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 14px;
-  color: #B9BDCF;
+  margin-block-end: 0;
 `;
 
 export const Image = styled.img `

@@ -7,6 +7,12 @@ export const Base = styled.form `
   padding-bottom: 62px;
   padding-left: 18px;
   padding-right: 18px;
+
+  svg {
+    position: relative;
+    top: -47px;
+    left: 15px;
+  }
 `;
 
 export const Wrapper = styled.div `
@@ -32,6 +38,7 @@ export const Input = styled.input `
   width: 100%;
   height: 90%;
   cursor: pointer;
+  padding-left: 42px;
 `;
 
 export const Submit = styled.button `

@@ -3,8 +3,11 @@ import styled from 'styled-components';
 export const Container = styled.section `
 
   @media(min-width: 1000px) {
+    max-width: 1114px;
+    margin-left: auto;
+    margin-right: auto;
     display: grid;
-    grid-template-columns: 20% 1fr;
+    grid-template-columns: 30% 1fr;
     column-gap: 32px;
     align-items: flex-start;
   }
@@ -44,12 +47,9 @@ export const Frame = styled.div `
     border: 1px solid #1E86FF;
   }
 
-  li:focus {
-    background-color:  #1E86FF;
-
-    a {
-      color: white;
-    }
+  li:first-child,
+  li:last-child {
+    display:none;
   }
 
   a {
@@ -61,7 +61,20 @@ export const Frame = styled.div `
   }
 
   a:hover{
-    color: #1E86FF;
+    color: white;
+  }
+
+  .isCliked {
+    background-color:  #1E86FF;
+    color: white;
+  }
+
+  @media (min-width: 1000px) {
+      max-width: 1114px;
+      margin-left: auto;
+      margin-right: auto;
   }
 `;
+
+
 

@@ -35792,15 +35792,13 @@ const GlobalStyles = (0, _styledComponents.createGlobalStyle)`
         margin: 0;
         background: #F6F7FB;
         border-radius: 12px;
-    }
 
-    img {
-      /* width: 100px; */
+    fieldset {
+      margin: 0;
+      padding: 0;
     }
+  }
 
-    a {
-      text-transform: none;
-    }
 `;
 exports.GlobalStyles = GlobalStyles;
 },{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"node_modules/react-js-pagination/node_modules/react/cjs/react.development.js":[function(require,module,exports) {
@@ -39969,8 +39967,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const Container = _styledComponents.default.section`
 
   @media(min-width: 1000px) {
+    max-width: 1114px;
+    margin-left: auto;
+    margin-right: auto;
     display: grid;
-    grid-template-columns: 20% 1fr;
+    grid-template-columns: 30% 1fr;
     column-gap: 32px;
     align-items: flex-start;
   }
@@ -40011,12 +40012,9 @@ const Frame = _styledComponents.default.div`
     border: 1px solid #1E86FF;
   }
 
-  li:focus {
-    background-color:  #1E86FF;
-
-    a {
-      color: white;
-    }
+  li:first-child,
+  li:last-child {
+    display:none;
   }
 
   a {
@@ -40028,7 +40026,18 @@ const Frame = _styledComponents.default.div`
   }
 
   a:hover{
-    color: #1E86FF;
+    color: white;
+  }
+
+  .isCliked {
+    background-color:  #1E86FF;
+    color: white;
+  }
+
+  @media (min-width: 1000px) {
+      max-width: 1114px;
+      margin-left: auto;
+      margin-right: auto;
   }
 `;
 exports.Frame = Frame;
@@ -40046,10 +40055,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const Container = _styledComponents.default.header`
   padding: 16px;
+
+  @media(min-width: 1000px) {
+    max-width: 1114px;
+    margin-right: auto;
+    margin-left: auto;
+  }
 `;
 exports.Container = Container;
 const Background = _styledComponents.default.section`
-  background-image: url('./images/images/backgroundImg.png');
+  background-image: url('./images/backgroundImg.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -40125,6 +40140,12 @@ const Base = _styledComponents.default.form`
   padding-bottom: 62px;
   padding-left: 18px;
   padding-right: 18px;
+
+  svg {
+    position: relative;
+    top: -47px;
+    left: 15px;
+  }
 `;
 exports.Base = Base;
 const Wrapper = _styledComponents.default.div`
@@ -40150,6 +40171,7 @@ const Input = _styledComponents.default.input`
   width: 100%;
   height: 90%;
   cursor: pointer;
+  padding-left: 42px;
 `;
 exports.Input = Input;
 const Submit = _styledComponents.default.button`
@@ -40242,7 +40264,16 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const Form = _styledComponents.default.form``;
+const Form = _styledComponents.default.form`
+  margin-block-start: 30px;
+  margin-block-end: 30px;
+
+  svg {
+    position: relative;
+    top: -31px;
+    left: 16px;
+  }
+`;
 exports.Form = Form;
 const Fieldset = _styledComponents.default.fieldset`
   border-color: transparent;
@@ -40257,11 +40288,12 @@ const Input = _styledComponents.default.input`
   border-color: transparent;
   cursor: pointer;
   padding: 12px;
-  margin-bottom: 32px;
+  padding-left: 45px;
   font-weight: normal;
   font-size: 12px;
   line-height: 14px;
   color: #B9BDCF;
+  margin-block-start:14px;
 `;
 exports.Input = Input;
 const Text = _styledComponents.default.label`
@@ -40393,7 +40425,7 @@ FormType.Text = function FormTypeText({
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Image = exports.LogoDate = exports.LogoCity = exports.Text = exports.Title = exports.Frame = exports.SubWrapper = exports.Wrapper = exports.Item = void 0;
+exports.Image = exports.SmallText = exports.Text = exports.Title = exports.Frame = exports.SubWrapper = exports.Wrapper = exports.Item = void 0;
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
@@ -40419,8 +40451,22 @@ const Wrapper = _styledComponents.default.div`
 `;
 exports.Wrapper = Wrapper;
 const SubWrapper = _styledComponents.default.div`
+
   display: flex;
   justify-content: flex-end;
+  gap: 29px;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 8.5px
+  }
+
+  @media (max-width: 600px) {
+   justify-content: center;
+}
+
 `;
 exports.SubWrapper = SubWrapper;
 const Frame = _styledComponents.default.div``;
@@ -40440,22 +40486,15 @@ const Text = _styledComponents.default.p`
   color: #334680;
 `;
 exports.Text = Text;
-const LogoCity = _styledComponents.default.p`
+const SmallText = _styledComponents.default.p`
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 14px;
   color: #B9BDCF;
+  margin-block-end: 0;
 `;
-exports.LogoCity = LogoCity;
-const LogoDate = _styledComponents.default.p`
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 14px;
-  color: #B9BDCF;
-`;
-exports.LogoDate = LogoDate;
+exports.SmallText = SmallText;
 const Image = _styledComponents.default.img`
   max-width: 100px;
 `;
@@ -40521,18 +40560,11 @@ Feature.Frame = function FeatureFrame({
   return /*#__PURE__*/_react.default.createElement(_feature.Frame, restProps, children);
 };
 
-Feature.LogoCity = function FeatureLogoCity({
+Feature.SmallText = function FeatureSmallText({
   children,
   restProps
 }) {
-  return /*#__PURE__*/_react.default.createElement(_feature.LogoCity, restProps, children);
-};
-
-Feature.LogoDate = function FeatureLogoDate({
-  children,
-  restProps
-}) {
-  return /*#__PURE__*/_react.default.createElement(_feature.LogoDate, restProps, children);
+  return /*#__PURE__*/_react.default.createElement(_feature.SmallText, restProps, children);
 };
 },{"react":"node_modules/react/index.js","./styles/feature":"src/components/feature/styles/feature.js"}],"src/components/jobs/styles/jobs.js":[function(require,module,exports) {
 "use strict";
@@ -40670,112 +40702,233 @@ City.Text = function CityText({
 };
 
 ;
-},{"react":"node_modules/react/index.js","./styles/city":"src/components/city/styles/city.js"}],"src/components/cityDetails/styles/cityDetails.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./styles/city":"src/components/city/styles/city.js"}],"src/components/jobDetails/styles/jobDetails.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SmallText = exports.Text = exports.SubTitle = exports.Title = exports.Image = exports.Frame = exports.Wrapper = exports.Container = void 0;
+exports.SmallText = exports.Link = exports.Text = exports.SubTitle = exports.Image = exports.Frame = exports.Wrapper = exports.Container = exports.Title = exports.Article = void 0;
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const Container = _styledComponents.default.article`
-  display: grid;
-  grid-template-columns: 30% 1fr;
-  column-gap: 80px;
-  align-items: flex-start;
+const Article = _styledComponents.default.article`
+  margin-left: 16px;
+  margin-right: 16px;
+
+  @media (min-width: 1000px) {
+    max-width: 1114px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    column-gap: 40px;
+    align-items: flex-start;
+  }
+
+`;
+exports.Article = Article;
+const Title = _styledComponents.default.h2`
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+  text-transform: uppercase;
+  color: #B9BDCF;
+
+`;
+exports.Title = Title;
+const Container = _styledComponents.default.div`
+
+  text-align: left;
+  max-width: 50%;
+
+  a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #1E86FF;
+  }
+
+  div {
+
+    h2 {
+      font-size: 20px;
+      line-height: 28px;
+      color: #334680;
+      margin-bottom: 0;
+    }
+
+  }
+
 `;
 exports.Container = Container;
 const Wrapper = _styledComponents.default.div`
+  margin-bottom: 35px;
+
+  div {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 17px;
+      align-items: flex-end;
+      margin-bottom: 10px;
+    }
 
 `;
 exports.Wrapper = Wrapper;
-const Frame = _styledComponents.default.div``;
+const Frame = _styledComponents.default.div`
+
+  div {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  h3 {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    color: #334680;
+    margin: 0;
+  }
+
+  div:nth-of-type(2) {
+    position: relative;
+    left: 67px;
+    top: -21px;
+  }
+`;
 exports.Frame = Frame;
 const Image = _styledComponents.default.img`
-  width: 100px;
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
 `;
 exports.Image = Image;
-const Title = _styledComponents.default.h2``;
-exports.Title = Title;
-const SubTitle = _styledComponents.default.h3``;
+const SubTitle = _styledComponents.default.h3`
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  color: #334680;
+`;
 exports.SubTitle = SubTitle;
-const Text = _styledComponents.default.p``;
+const Text = _styledComponents.default.p`
+  line-height: 150%;
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+`;
 exports.Text = Text;
-const SmallText = _styledComponents.default.p``;
+const Link = _styledComponents.default.div`
+  p {
+    a {
+      padding-right: 30px;
+    }
+  }
+
+`;
+exports.Link = Link;
+const SmallText = _styledComponents.default.p`
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: #B7BCCE;
+  margin: 0;
+`;
 exports.SmallText = SmallText;
-},{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/cityDetails/index.js":[function(require,module,exports) {
+},{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/jobDetails/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = CityDetails;
+exports.default = JobDetails;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _cityDetails = require("./styles/cityDetails");
+var _jobDetails = require("./styles/jobDetails");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // import { Wrapper } from '../form/styles/form'
-function CityDetails({
+function JobDetails({
   children,
   ...restProps
 }) {
-  return /*#__PURE__*/_react.default.createElement(_cityDetails.Container, restProps, children);
+  return /*#__PURE__*/_react.default.createElement(_jobDetails.Article, restProps, children);
 }
 
-CityDetails.Wrapper = function CityDetailsWrapper({
+JobDetails.Container = function JobDetailsContainer({
   children,
   ...restProps
 }) {
-  return /*#__PURE__*/_react.default.createElement(_cityDetails.Wrapper, restProps, children);
+  return /*#__PURE__*/_react.default.createElement(_jobDetails.Container, restProps, children);
 };
 
-CityDetails.Image = function CityDetailsImage({ ...restProps
-}) {
-  return /*#__PURE__*/_react.default.createElement(_cityDetails.Image, restProps);
-};
-
-CityDetails.Frame = function CityDetailsFrame({
+JobDetails.Wrapper = function JobDetailsWrapper({
   children,
   ...restProps
 }) {
-  return /*#__PURE__*/_react.default.createElement(_cityDetails.Frame, restProps, children);
+  return /*#__PURE__*/_react.default.createElement(_jobDetails.Wrapper, restProps, children);
 };
 
-CityDetails.Title = function CityDetailsTitle({
+JobDetails.Image = function JobDetailsImage({ ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_jobDetails.Image, restProps);
+};
+
+JobDetails.Link = function JobDetailsLink({
   children,
   ...restProps
 }) {
-  return /*#__PURE__*/_react.default.createElement(_cityDetails.Title, restProps, children);
+  return /*#__PURE__*/_react.default.createElement(_jobDetails.Link, restProps, children);
 };
 
-CityDetails.SubTitle = function CityDetailsSubTitle({
+JobDetails.Frame = function JobDetailsFrame({
   children,
   ...restProps
 }) {
-  return /*#__PURE__*/_react.default.createElement(SubTitle, restProps, children);
+  return /*#__PURE__*/_react.default.createElement(_jobDetails.Frame, restProps, children);
 };
 
-CityDetails.Text = function CityDetailsText({
+JobDetails.Title = function JobDetailsTitle({
   children,
   ...restProps
 }) {
-  return /*#__PURE__*/_react.default.createElement(_cityDetails.Text, restProps, children);
+  return /*#__PURE__*/_react.default.createElement(_jobDetails.Title, restProps, children);
 };
 
-CityDetails.SmallText = function CityDetailsSmallText({
+JobDetails.SubTitle = function JobDetailsSubTitle({
   children,
   ...restProps
 }) {
-  return /*#__PURE__*/_react.default.createElement(_cityDetails.SmallText, restProps, children);
+  return /*#__PURE__*/_react.default.createElement(_jobDetails.SubTitle, restProps, children);
 };
-},{"react":"node_modules/react/index.js","./styles/cityDetails":"src/components/cityDetails/styles/cityDetails.js"}],"src/components/buttons/styles/buttons.js":[function(require,module,exports) {
+
+JobDetails.Text = function JobDetailsText({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_jobDetails.Text, restProps, children);
+};
+
+JobDetails.SmallText = function JobDetailsSmallText({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_jobDetails.SmallText, restProps, children);
+};
+},{"react":"node_modules/react/index.js","./styles/jobDetails":"src/components/jobDetails/styles/jobDetails.js"}],"src/components/buttons/styles/buttons.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -40910,7 +41063,7 @@ Object.defineProperty(exports, "City", {
 Object.defineProperty(exports, "JobDetails", {
   enumerable: true,
   get: function () {
-    return _cityDetails.default;
+    return _jobDetails.default;
   }
 });
 Object.defineProperty(exports, "Buttons", {
@@ -40942,14 +41095,14 @@ var _searchCity = _interopRequireDefault(require("./searchCity"));
 
 var _city = _interopRequireDefault(require("./city"));
 
-var _cityDetails = _interopRequireDefault(require("./cityDetails"));
+var _jobDetails = _interopRequireDefault(require("./jobDetails"));
 
 var _buttons = _interopRequireDefault(require("./buttons"));
 
 var _loading = _interopRequireDefault(require("./loading"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./header":"src/components/header/index.js","./form":"src/components/form/index.js","./formLoc":"src/components/formLoc/index.js","./formType":"src/components/formType/index.js","./feature":"src/components/feature/index.js","./jobs":"src/components/jobs/index.js","./searchCity":"src/components/searchCity/index.js","./city":"src/components/city/index.js","./cityDetails":"src/components/cityDetails/index.js","./buttons":"src/components/buttons/index.js","./loading":"src/components/loading/index.js"}],"src/containers/header.js":[function(require,module,exports) {
+},{"./header":"src/components/header/index.js","./form":"src/components/form/index.js","./formLoc":"src/components/formLoc/index.js","./formType":"src/components/formType/index.js","./feature":"src/components/feature/index.js","./jobs":"src/components/jobs/index.js","./searchCity":"src/components/searchCity/index.js","./city":"src/components/city/index.js","./jobDetails":"src/components/jobDetails/index.js","./buttons":"src/components/buttons/index.js","./loading":"src/components/loading/index.js"}],"src/containers/header.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -40994,14 +41147,32 @@ function FeatureContainer({
   const dateStr = job.created_at;
   const date = new Date(dateStr);
   const days = date.getDay() + 1;
-  return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: `/${job.id}`
-  }, /*#__PURE__*/_react.default.createElement(_components.Feature, {
+  return /*#__PURE__*/_react.default.createElement(_components.Feature, {
     onClick: toggleItems
+  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: `/${job.id}`
   }, /*#__PURE__*/_react.default.createElement(_components.Feature.Wrapper, null, /*#__PURE__*/_react.default.createElement(_components.Feature.Image, {
     src: job.company_logo,
     alt: job.title
-  }), /*#__PURE__*/_react.default.createElement(_components.Feature.Frame, null, /*#__PURE__*/_react.default.createElement(_components.Feature.Text, null, job.company), /*#__PURE__*/_react.default.createElement(_components.Feature.Title, null, job.title), /*#__PURE__*/_react.default.createElement(_components.Buttons, null, job.type))), /*#__PURE__*/_react.default.createElement(_components.Feature.SubWrapper, null, /*#__PURE__*/_react.default.createElement(_components.Feature.LogoCity, null, job.location), /*#__PURE__*/_react.default.createElement(_components.Feature.LogoDate, null, days, " ", days > 1 ? 'days' : 'day', " ago"))));
+  }), /*#__PURE__*/_react.default.createElement(_components.Feature.Frame, null, /*#__PURE__*/_react.default.createElement(_components.Feature.Text, null, job.company), /*#__PURE__*/_react.default.createElement(_components.Feature.Title, null, job.title), /*#__PURE__*/_react.default.createElement(_components.Buttons, null, job.type), /*#__PURE__*/_react.default.createElement(_components.Feature.SubWrapper, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("svg", {
+    width: "18",
+    height: "18",
+    viewBox: "0 0 18 18",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M9 2C4.86 2 1.5 5.36 1.5 9.5C1.5 13.64 4.86 17 9 17C13.14 17 16.5 13.64 16.5 9.5C16.5 5.36 13.14 2 9 2ZM8.25 15.4475C5.2875 15.08 3 12.56 3 9.5C3 9.035 3.06 8.5925 3.1575 8.1575L6.75 11.75V12.5C6.75 13.325 7.425 14 8.25 14V15.4475ZM13.425 13.5425C13.23 12.935 12.675 12.5 12 12.5H11.25V10.25C11.25 9.8375 10.9125 9.5 10.5 9.5H6V8H7.5C7.9125 8 8.25 7.6625 8.25 7.25V5.75H9.75C10.575 5.75 11.25 5.075 11.25 4.25V3.9425C13.4475 4.835 15 6.9875 15 9.5C15 11.06 14.4 12.4775 13.425 13.5425Z",
+    fill: "#B9BDCF"
+  })), /*#__PURE__*/_react.default.createElement(_components.Feature.SmallText, null, job.location)), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("svg", {
+    width: "18",
+    height: "18",
+    viewBox: "0 0 18 18",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M8.9925 1.5C4.8525 1.5 1.5 4.86 1.5 9C1.5 13.14 4.8525 16.5 8.9925 16.5C13.14 16.5 16.5 13.14 16.5 9C16.5 4.86 13.14 1.5 8.9925 1.5ZM9 15C5.685 15 3 12.315 3 9C3 5.685 5.685 3 9 3C12.315 3 15 5.685 15 9C15 12.315 12.315 15 9 15ZM8.835 5.25H8.79C8.49 5.25 8.25 5.49 8.25 5.79V9.33C8.25 9.5925 8.385 9.84 8.6175 9.975L11.73 11.8425C11.985 11.9925 12.315 11.9175 12.465 11.6625C12.6225 11.4075 12.54 11.07 12.2775 10.92L9.375 9.195V5.79C9.375 5.49 9.135 5.25 8.835 5.25Z",
+    fill: "#B7BCCE"
+  })), /*#__PURE__*/_react.default.createElement(_components.Feature.SmallText, null, days, " ", days > 1 ? 'days' : 'day', " ago")))))));
 }
 },{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../components":"src/components/index.js"}],"src/containers/jobs.js":[function(require,module,exports) {
 "use strict";
@@ -41099,7 +41270,16 @@ function FormContainer() {
     placeholder: "Title, companies, experti...",
     value: searchJob,
     onChange: e => setSearchJob(e.target.value)
-  })), /*#__PURE__*/_react.default.createElement(_components.Form.Submit, null, "Search"))));
+  }), /*#__PURE__*/_react.default.createElement("svg", {
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M20 6C20.58 6 21.05 6.2 21.42 6.59C21.8 7 22 7.45 22 8V19C22 19.55 21.8 20 21.42 20.41C21.05 20.8 20.58 21 20 21H4C3.42 21 2.95 20.8 2.58 20.41C2.2 20 2 19.55 2 19V8C2 7.45 2.2 7 2.58 6.59C2.95 6.2 3.42 6 4 6H8V4C8 3.42 8.2 2.95 8.58 2.58C8.95 2.2 9.42 2 10 2H14C14.58 2 15.05 2.2 15.42 2.58C15.8 2.95 16 3.42 16 4V6H20ZM4 8V19H20V8H4ZM14 6V4H10V6H14Z",
+    fill: "#B9BDCF"
+  }))), /*#__PURE__*/_react.default.createElement(_components.Form.Submit, null, "Search"))));
 }
 },{"react":"node_modules/react/index.js","../context/globalContextProvider":"src/context/globalContextProvider.js","../components":"src/components/index.js"}],"src/fixtures/cityData.js":[function(require,module,exports) {
 "use strict";
@@ -41267,7 +41447,16 @@ function FormLocationContainer() {
     placeholder: "City, state, zip code or",
     value: location,
     onChange: e => setLocation(e.target.value)
-  })));
+  }), /*#__PURE__*/_react.default.createElement("svg", {
+    width: "18",
+    height: "18",
+    viewBox: "0 0 18 18",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M9.5 2C5.36 2 2 5.36 2 9.5C2 13.64 5.36 17 9.5 17C13.64 17 17 13.64 17 9.5C17 5.36 13.64 2 9.5 2ZM8.75 15.4475C5.7875 15.08 3.5 12.56 3.5 9.5C3.5 9.035 3.56 8.5925 3.6575 8.1575L7.25 11.75V12.5C7.25 13.325 7.925 14 8.75 14V15.4475ZM13.925 13.5425C13.73 12.935 13.175 12.5 12.5 12.5H11.75V10.25C11.75 9.8375 11.4125 9.5 11 9.5H6.5V8H8C8.4125 8 8.75 7.6625 8.75 7.25V5.75H10.25C11.075 5.75 11.75 5.075 11.75 4.25V3.9425C13.9475 4.835 15.5 6.9875 15.5 9.5C15.5 11.06 14.9 12.4775 13.925 13.5425Z",
+    fill: "#B9BDCF"
+  }))));
 }
 },{"react":"node_modules/react/index.js","../context/globalContextProvider":"src/context/globalContextProvider.js","../components":"src/components/index.js"}],"src/pages/home.js":[function(require,module,exports) {
 "use strict";
@@ -41317,18 +41506,19 @@ function Home() {
     loading,
     jobs
   } = state;
-  const totalJobsPages = !loading && jobs && jobs.length;
+  const [isClicked, setIsCliked] = (0, _react.useState)(false); // const totalJobsPages = ;
 
   function displayPages(num) {
+    setIsCliked(true);
     setActivePage(num);
   }
 
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.default, null, /*#__PURE__*/_react.default.createElement(_components.Header.Background, null, /*#__PURE__*/_react.default.createElement(_form.default, null))), /*#__PURE__*/_react.default.createElement(_homeStyle.Container, null, /*#__PURE__*/_react.default.createElement(_homeStyle.Wrapper, null, /*#__PURE__*/_react.default.createElement(_formType.default, null), /*#__PURE__*/_react.default.createElement(_formLoc.default, null), /*#__PURE__*/_react.default.createElement(_city.default, null)), /*#__PURE__*/_react.default.createElement(_jobs.default, null)), /*#__PURE__*/_react.default.createElement(_homeStyle.Frame, null, /*#__PURE__*/_react.default.createElement(_reactJsPagination.default, {
-    hideNavigation: true,
+    className: isClicked ? 'isCliked' : '',
     pageRangeDisplayed: 3,
     activePage: activePage,
     itemsCountPerPage: 6,
-    totalItemsCount: totalJobsPages,
+    totalItemsCount: !loading && jobs && jobs.length,
     onChange: displayPages
   })));
 }
@@ -41372,7 +41562,10 @@ function JobDetailsContainer() {
   const {
     jobDetails,
     loading
-  } = state; // Fetch the job details
+  } = state;
+  const dateStr = !loading && jobDetails && jobDetails.created_at;
+  const date = new Date(dateStr);
+  const days = date.getDay() + 1; // Fetch the job details
 
   async function getJobDetail() {
     const fetchJobDetail = await (0, _axios.default)(BASE_URL + `${jobId}.json`); // Dispatch the data
@@ -41388,16 +41581,34 @@ function JobDetailsContainer() {
       getJobDetail();
     }, 500);
   }, []);
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.default, null), /*#__PURE__*/_react.default.createElement(_components.JobDetails, null, /*#__PURE__*/_react.default.createElement(_components.JobDetails.Wrapper, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.default, null), /*#__PURE__*/_react.default.createElement(_components.JobDetails, null, /*#__PURE__*/_react.default.createElement(_components.JobDetails.Container, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/"
-  }, "\u2190 Go back to seach"), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Title, null, "How to apply"), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Text, {
+  }, "\u2190 Go back to seach"), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Title, null, "How to apply"), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Link, {
     dangerouslySetInnerHTML: {
       __html: jobDetails.how_to_apply
     }
-  })), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Wrapper, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_components.JobDetails.Title, null, jobDetails.title), /*#__PURE__*/_react.default.createElement(_components.JobDetails.SmallText, null, jobDetails.created_at)), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Frame, null, /*#__PURE__*/_react.default.createElement(_components.JobDetails.Image, {
+  })), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Container, null, /*#__PURE__*/_react.default.createElement(_components.JobDetails.Wrapper, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_components.JobDetails.Title, null, jobDetails.title), /*#__PURE__*/_react.default.createElement(_components.Buttons, null, jobDetails.type)), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("svg", {
+    width: "18",
+    height: "18",
+    viewBox: "0 0 18 18",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M8.9925 1.5C4.8525 1.5 1.5 4.86 1.5 9C1.5 13.14 4.8525 16.5 8.9925 16.5C13.14 16.5 16.5 13.14 16.5 9C16.5 4.86 13.14 1.5 8.9925 1.5ZM9 15C5.685 15 3 12.315 3 9C3 5.685 5.685 3 9 3C12.315 3 15 5.685 15 9C15 12.315 12.315 15 9 15ZM8.835 5.25H8.79C8.49 5.25 8.25 5.49 8.25 5.79V9.33C8.25 9.5925 8.385 9.84 8.6175 9.975L11.73 11.8425C11.985 11.9925 12.315 11.9175 12.465 11.6625C12.6225 11.4075 12.54 11.07 12.2775 10.92L9.375 9.195V5.79C9.375 5.49 9.135 5.25 8.835 5.25Z",
+    fill: "#B7BCCE"
+  })), /*#__PURE__*/_react.default.createElement(_components.JobDetails.SmallText, null, days, " days ago"))), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Frame, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_components.JobDetails.Image, {
     src: jobDetails.company_logo,
     alt: "Image"
-  }), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Title, null, jobDetails.company)), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Text, {
+  }), /*#__PURE__*/_react.default.createElement(_components.JobDetails.SubTitle, null, jobDetails.company)), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("svg", {
+    width: "18",
+    height: "18",
+    viewBox: "0 0 18 18",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M9 2C4.86 2 1.5 5.36 1.5 9.5C1.5 13.64 4.86 17 9 17C13.14 17 16.5 13.64 16.5 9.5C16.5 5.36 13.14 2 9 2ZM8.25 15.4475C5.2875 15.08 3 12.56 3 9.5C3 9.035 3.06 8.5925 3.1575 8.1575L6.75 11.75V12.5C6.75 13.325 7.425 14 8.25 14V15.4475ZM13.425 13.5425C13.23 12.935 12.675 12.5 12 12.5H11.25V10.25C11.25 9.8375 10.9125 9.5 10.5 9.5H6V8H7.5C7.9125 8 8.25 7.6625 8.25 7.25V5.75H9.75C10.575 5.75 11.25 5.075 11.25 4.25V3.9425C13.4475 4.835 15 6.9875 15 9.5C15 11.06 14.4 12.4775 13.425 13.5425Z",
+    fill: "#B9BDCF"
+  })), /*#__PURE__*/_react.default.createElement(_components.JobDetails.SmallText, null, jobDetails.location))), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Text, {
     dangerouslySetInnerHTML: {
       __html: jobDetails.description
     }
@@ -41482,7 +41693,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53509" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56523" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

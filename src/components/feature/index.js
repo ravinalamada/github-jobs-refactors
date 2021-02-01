@@ -7,8 +7,7 @@ import {
          Image,
          Frame,
          SubWrapper,
-        LogoCity,
-        LogoDate } from './styles/feature';
+        SmallText } from './styles/feature';
 
 export default function Feature({children, ...restProps}) {
   return (
@@ -42,9 +41,7 @@ Feature.Frame = function FeatureFrame({children,restProps}) {
   return (<Frame {...restProps}>{children}</Frame>)
 }
 
-Feature.LogoCity = function FeatureLogoCity({children,restProps}) {
-  return (<LogoCity {...restProps}>{children}</LogoCity>)
+Feature.SmallText = function FeatureSmallText({children,restProps}) {
+  return (<SmallText {...restProps}>{children}</SmallText>)
 }
-Feature.LogoDate = function FeatureLogoDate({children,restProps}) {
-  return (<LogoDate {...restProps}>{children}</LogoDate>)
-}
+
