@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Article = styled.article `
   margin-left: 16px;
   margin-right: 16px;
+  text-align: center;
 
   @media (min-width: 1000px) {
     max-width: 1114px;
@@ -29,7 +30,6 @@ export const Title = styled.h2 `
 export const Container = styled.div `
 
   text-align: left;
-  max-width: 50%;
 
   a {
     text-decoration: none;
@@ -42,11 +42,20 @@ export const Container = styled.div `
   div {
 
     h2 {
-      font-size: 20px;
-      line-height: 28px;
+      font-size: 16px;
+      line-height: 18px;
       color: #334680;
       margin-bottom: 0;
+
+      @media (min-width: 1000px) {
+        font-size: 20px;
+        line-height: 28px;
+      }
     }
+
+  }
+
+  @media(min-width: 1000px) {
 
   }
 
@@ -77,10 +86,15 @@ export const Frame = styled.div `
 
   h3 {
     font-weight: bold;
-    font-size: 18px;
-    line-height: 21px;
+    font-size: 14px;
+    line-height: 16px;
     color: #334680;
     margin: 0;
+
+    @media(min-width: 1000px) {
+      font-size: 18px;
+      line-height: 21px;
+    }
   }
 
   div:nth-of-type(2) {
@@ -99,13 +113,19 @@ export const Image = styled.img `
 
 export const SubTitle = styled.h3 `
   font-weight: bold;
-  font-size: 18px;
-  line-height: 21px;
+  font-size: 14px;
+  line-height: 16px;
   color: #334680;
+
+  @media(min-width: 1000px) {
+    font-size: 18px;
+    line-height: 21px;
+  }
 `;
 
 export const Text = styled.p `
   line-height: 150%;
+  width: 80%;
 
   ul {
     padding: 0;

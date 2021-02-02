@@ -8,6 +8,7 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         background: #F6F7FB;
         border-radius: 12px;
+        overflow-x: hidden;
 
     fieldset {
       margin: 0;

@@ -35792,6 +35792,7 @@ const GlobalStyles = (0, _styledComponents.createGlobalStyle)`
         margin: 0;
         background: #F6F7FB;
         border-radius: 12px;
+        overflow-x: hidden;
 
     fieldset {
       margin: 0;
@@ -39985,7 +39986,16 @@ const Container = _styledComponents.default.section`
 
 `;
 exports.Container = Container;
-const Wrapper = _styledComponents.default.div``;
+const Wrapper = _styledComponents.default.div`
+
+  margin-left: 16px;
+  margin-right: 16px;
+
+  @media (min-width: 1000px) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+`;
 exports.Wrapper = Wrapper;
 const Frame = _styledComponents.default.div`
   display: flex;
@@ -40720,6 +40730,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const Article = _styledComponents.default.article`
   margin-left: 16px;
   margin-right: 16px;
+  text-align: center;
 
   @media (min-width: 1000px) {
     max-width: 1114px;
@@ -40745,7 +40756,6 @@ exports.Title = Title;
 const Container = _styledComponents.default.div`
 
   text-align: left;
-  max-width: 50%;
 
   a {
     text-decoration: none;
@@ -40758,11 +40768,20 @@ const Container = _styledComponents.default.div`
   div {
 
     h2 {
-      font-size: 20px;
-      line-height: 28px;
+      font-size: 16px;
+      line-height: 18px;
       color: #334680;
       margin-bottom: 0;
+
+      @media (min-width: 1000px) {
+        font-size: 20px;
+        line-height: 28px;
+      }
     }
+
+  }
+
+  @media(min-width: 1000px) {
 
   }
 
@@ -40793,10 +40812,15 @@ const Frame = _styledComponents.default.div`
 
   h3 {
     font-weight: bold;
-    font-size: 18px;
-    line-height: 21px;
+    font-size: 14px;
+    line-height: 16px;
     color: #334680;
     margin: 0;
+
+    @media(min-width: 1000px) {
+      font-size: 18px;
+      line-height: 21px;
+    }
   }
 
   div:nth-of-type(2) {
@@ -40814,13 +40838,19 @@ const Image = _styledComponents.default.img`
 exports.Image = Image;
 const SubTitle = _styledComponents.default.h3`
   font-weight: bold;
-  font-size: 18px;
-  line-height: 21px;
+  font-size: 14px;
+  line-height: 16px;
   color: #334680;
+
+  @media(min-width: 1000px) {
+    font-size: 18px;
+    line-height: 21px;
+  }
 `;
 exports.SubTitle = SubTitle;
 const Text = _styledComponents.default.p`
   line-height: 150%;
+  width: 80%;
 
   ul {
     padding: 0;
@@ -41640,6 +41670,8 @@ var _components = require("../components");
 
 var _header = _interopRequireDefault(require("../containers/header"));
 
+var _loading = _interopRequireDefault(require("../containers/loading"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
@@ -41679,7 +41711,7 @@ function JobDetailsContainer() {
       getJobDetail();
     }, 500);
   }, []);
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.default, null), /*#__PURE__*/_react.default.createElement(_components.JobDetails, null, /*#__PURE__*/_react.default.createElement(_components.JobDetails.Container, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.default, null), loading ? /*#__PURE__*/_react.default.createElement(_loading.default, null) : /*#__PURE__*/_react.default.createElement(_components.JobDetails, null, /*#__PURE__*/_react.default.createElement(_components.JobDetails.Container, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/"
   }, "\u2190 Go back to seach"), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Title, null, "How to apply"), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Link, {
     dangerouslySetInnerHTML: {
@@ -41715,7 +41747,7 @@ function JobDetailsContainer() {
 
 var _default = JobDetailsContainer;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","axios":"node_modules/axios/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../context/globalContextProvider":"src/context/globalContextProvider.js","../components":"src/components/index.js","../containers/header":"src/containers/header.js"}],"src/App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","axios":"node_modules/axios/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../context/globalContextProvider":"src/context/globalContextProvider.js","../components":"src/components/index.js","../containers/header":"src/containers/header.js","../containers/loading":"src/containers/loading.js"}],"src/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -41791,7 +41823,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63525" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51081" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

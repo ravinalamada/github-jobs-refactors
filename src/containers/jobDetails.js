@@ -5,6 +5,7 @@ import {Link,useParams} from 'react-router-dom';
 import {Context} from '../context/globalContextProvider';
 import { JobDetails } from '../components';
 import HeaderContainer from '../containers/header';
+import LoadingContainer from '../containers/loading';
 import { Buttons } from '../components';
 
 // These are the url that I am going to fetch
@@ -36,7 +37,10 @@ function JobDetailsContainer() {
   return (
     <>
     <HeaderContainer />
-    <JobDetails>
+    {loading
+     ? <LoadingContainer />
+     :
+        <JobDetails>
       <JobDetails.Container>
         <Link to="/">← Go back to seach</Link>
         <JobDetails.Title>How to apply</JobDetails.Title>
@@ -66,6 +70,7 @@ function JobDetailsContainer() {
         <JobDetails.Text dangerouslySetInnerHTML={{__html: jobDetails.description}} />
       </JobDetails.Container>
     </JobDetails>
+    }
   </>
   )
 }

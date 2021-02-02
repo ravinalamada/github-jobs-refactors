@@ -17,7 +17,16 @@ export const Container = styled.section `
   }
 
 `;
-export const Wrapper = styled.div ``;
+export const Wrapper = styled.div `
+
+  margin-left: 16px;
+  margin-right: 16px;
+
+  @media (min-width: 1000px) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+`;
 
 export const Frame = styled.div `
   display: flex;
