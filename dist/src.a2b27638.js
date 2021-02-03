@@ -41458,6 +41458,8 @@ function CityContainer() {
     htmlFor: "berlin"
   }, city.city), /*#__PURE__*/_react.default.createElement(_components.City.Input, {
     type: "radio",
+    name: "city",
+    id: city.id,
     value: city.city,
     onChange: handleChange
   }))));
@@ -41823,7 +41825,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51081" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65086" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

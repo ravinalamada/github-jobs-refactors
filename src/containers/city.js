@@ -27,6 +27,8 @@ export default function CityContainer() {
         <City.Text htmlFor="berlin">{city.city}</City.Text>
         <City.Input
           type="radio"
+          name="city"
+          id={city.id}
           value={city.city}
           onChange={handleChange} />
       </City.Fieldset>
